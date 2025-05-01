@@ -21,6 +21,5 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".message").textContent = "No Numberrr!!";
   } else {
     document.querySelector(".message").textContent = "Yeah this is a numberrrr";
-    x;
   }
 });
