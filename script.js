@@ -1,7 +1,6 @@
 "use strict";
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1; // random number
-document.querySelector(".number").textContent = secretNumber;
+let secretNumber = Math.trunc(Math.random() * 20) + 1; // random number
 
 let score = 20;
 
@@ -18,8 +17,8 @@ document.querySelector(".check").addEventListener("click", function () {
   } else if (guessNumber === secretNumber) {
     document.querySelector(".message").textContent = "👍 correct number!";
     document.querySelector("body").style.backgroundColor = "#60b347";
-
     document.querySelector(".number").style.width = "35rem";
+    document.querySelector(".number").textContent = secretNumber;
 
     // to be sure when number is 0 the will stop & guess is too high
   } else if (guessNumber < secretNumber) {
@@ -42,4 +41,11 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".score").textContent = "0";
     }
   }
+});
+
+// restart btn
+documnet.querySelector(".again").addEventListener("click", function () {
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20) + 1; // random number
+  document.querySelector(".message").textContent = score;
 });
