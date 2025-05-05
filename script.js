@@ -16,6 +16,7 @@ document.querySelector(".check").addEventListener("click", function () {
     //when player wins
   } else if (guessNumber === secretNumber) {
     document.querySelector(".message").textContent = "👍 correct number!";
+
     document.querySelector("body").style.backgroundColor = "#60b347";
     document.querySelector(".number").style.width = "35rem";
     document.querySelector(".number").textContent = secretNumber;
@@ -44,8 +45,14 @@ document.querySelector(".check").addEventListener("click", function () {
 });
 
 // restart btn
-documnet.querySelector(".again").addEventListener("click", function () {
+document.querySelector(".again").addEventListener("click", function () {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1; // random number
-  document.querySelector(".message").textContent = score;
+  document.querySelector(".score").textContent = score;
+  document.querySelector(".message").textContent = "Start guessing...";
+  document.querySelector(".number").textContent = "?";
+  document.querySelector(".guess").value = ""; //value
+
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
 });
