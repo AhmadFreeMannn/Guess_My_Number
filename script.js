@@ -33,21 +33,10 @@ document.querySelector(".check").addEventListener("click", function () {
     }
 
     // to be sure when number is 0 the will stop & guess is too high
-  } else if (guessNumber < secretNumber) {
+  } else if (guessNumber !== secretNumber) {
     if (score > 1) {
-      document.querySelector(".message").textContent = "too low!";
-      score--;
-      document.querySelector(".score").textContent = score;
-
-      highScoreTemp = score;
-    } else {
-      document.querySelector(".message").textContent = "you lost the game";
-      document.querySelector(".score").textContent = "0";
-    }
-  } else {
-    // to be sure when number is 0 the will stop & guess is too low
-    if (score > 1) {
-      document.querySelector(".message").textContent = "too high!";
+      document.querySelector(".message").textContent =
+        guessNumber < secretNumber ? "too low!" : "too high!";
       score--;
       document.querySelector(".score").textContent = score;
 
