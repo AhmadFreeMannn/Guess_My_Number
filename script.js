@@ -24,10 +24,6 @@ document.querySelector(".check").addEventListener("click", function () {
         highScore = scoreCounter;
         document.querySelector(".highscore").textContent = highScore;
       }
-      /* else {
-         document.querySelector(".highscore").textContent = highScore;
-       }  we don't need this part because the high score was saved */
-
       // when player win
     } else if (guess > secretNumber) {
       if (scoreCounter > 1) {
