@@ -26,20 +26,14 @@ document.querySelector(".check").addEventListener("click", function () {
       }
       // when player win
     } else if (guess > secretNumber) {
-      if (scoreCounter > 1) {
-        // is scoreCounter 0?
-        document.querySelector(".message").textContent = "📈 Too high!"; // me
-        scoreCounter = scoreCounter - 1; // me
-        document.querySelector(".score").textContent = scoreCounter; // me
-      }
+      document.querySelector(".message").textContent = "📈 Too high!"; // me
+      scoreCounter = scoreCounter - 1; // me
+      document.querySelector(".score").textContent = scoreCounter; // me
       // block of bigger number
     } else if (guess < secretNumber) {
-      if (scoreCounter > 1) {
-        // is scoreCounter 0?
-        document.querySelector(".message").textContent = "📉 Too low!";
-        scoreCounter = scoreCounter - 1; // me. scoreCounter--; johans
-        document.querySelector(".score").textContent = scoreCounter; // me
-      }
+      document.querySelector(".message").textContent = "📉 Too low!";
+      scoreCounter = scoreCounter - 1; // me. scoreCounter--; johans
+      document.querySelector(".score").textContent = scoreCounter; // me
     }
   } else {
     document.querySelector(".message").textContent = "💥 You lost the game!!";
