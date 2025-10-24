@@ -32,7 +32,7 @@ document.querySelector(".check").addEventListener("click", function () {
       // block of bigger number
     } else if (guess < secretNumber) {
       document.querySelector(".message").textContent = "📉 Too low!";
-      scoreCounter = scoreCounter - 1; // me. scoreCounter--; johans
+      scoreCounter = scoreCounter - 1; // or scoreCounter--;
       document.querySelector(".score").textContent = scoreCounter; // me
     }
   } else {
@@ -50,7 +50,7 @@ document.querySelector(".again").addEventListener("click", function () {
   document.querySelector(".number").textContent = "?";
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".message").textContent = "Start guessing again...";
-  document.querySelector(".guess").value = ""; // Jonas - I had forgotten this line
+  document.querySelector(".guess").value = "";
   document.querySelector(".score").textContent = scoreCounter;
   document.querySelector(".number").style.width = "15rem";
 });
