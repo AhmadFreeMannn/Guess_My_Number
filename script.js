@@ -7,6 +7,10 @@ let highScore = 0;
 const displayMessage = function (message) {
   document.querySelector(".message").textContent = message;
 };
+const updateScore = function () {
+  scoreCounter = scoreCounter - 1; // or scoreCounter--;
+  document.querySelector(".score").textContent = scoreCounter;
+};
 
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
@@ -31,13 +35,11 @@ document.querySelector(".check").addEventListener("click", function () {
       // when player win
     } else if (guess > secretNumber) {
       displayMessage("📈 Too high!"); // me
-      scoreCounter = scoreCounter - 1; // me
-      document.querySelector(".score").textContent = scoreCounter; // me
+      updateScore();
       // block of bigger number
     } else if (guess < secretNumber) {
       displayMessage("📉 Too low!");
-      scoreCounter = scoreCounter - 1; // or scoreCounter--;
-      document.querySelector(".score").textContent = scoreCounter; // me
+      updateScore();
     }
   } else {
     displayMessage("💥 You lost the game!!");
