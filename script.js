@@ -4,6 +4,10 @@ let secretNumber = Math.trunc(Math.random() * 20 + 1);
 let scoreCounter = 20; // me
 let highScore = 0;
 
+const displayMessage = function (message) {
+  document.querySelector(".message").textContent = message;
+};
+
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
   console.log(guess, typeof guess); // show the number and typeof
@@ -12,9 +16,9 @@ document.querySelector(".check").addEventListener("click", function () {
     // scoreCounter check
     if (!guess) {
       // when there is no number
-      document.querySelector(".message").textContent = "⛔ No Number!";
+      displayMessage("⛔ No Number!");
     } else if (guess === secretNumber) {
-      document.querySelector(".message").textContent = "🎊 correct Number!!";
+      displayMessage("🎊 correct Number!!");
       document.querySelector(".number").textContent = secretNumber; // we show a correct number after user won the game
       document.querySelector("body").style.backgroundColor = "#60b347";
       document.querySelector(".number").style.width = "30rem";
@@ -26,17 +30,17 @@ document.querySelector(".check").addEventListener("click", function () {
       }
       // when player win
     } else if (guess > secretNumber) {
-      document.querySelector(".message").textContent = "📈 Too high!"; // me
+      displayMessage("📈 Too high!"); // me
       scoreCounter = scoreCounter - 1; // me
       document.querySelector(".score").textContent = scoreCounter; // me
       // block of bigger number
     } else if (guess < secretNumber) {
-      document.querySelector(".message").textContent = "📉 Too low!";
+      displayMessage("📉 Too low!");
       scoreCounter = scoreCounter - 1; // or scoreCounter--;
       document.querySelector(".score").textContent = scoreCounter; // me
     }
   } else {
-    document.querySelector(".message").textContent = "💥 You lost the game!!";
+    displayMessage("💥 You lost the game!!");
     document.querySelector(".score").textContent = 0;
     document.querySelector("body").style.backgroundColor = "#720000ff";
     document.querySelector(".number").style.width = "35rem";
@@ -49,7 +53,7 @@ document.querySelector(".again").addEventListener("click", function () {
   scoreCounter = 20;
   document.querySelector(".number").textContent = "?";
   document.querySelector("body").style.backgroundColor = "#222";
-  document.querySelector(".message").textContent = "Start guessing again...";
+  displayMessage("Start guessing again...");
   document.querySelector(".guess").value = "";
   document.querySelector(".score").textContent = scoreCounter;
   document.querySelector(".number").style.width = "15rem";
